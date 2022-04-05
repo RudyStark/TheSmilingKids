@@ -1,0 +1,63 @@
+<div class="flex-container">
+    <div class="donate-border">
+        <div class="big-title-admin">
+            <h2>My Profile</h2>
+        </div>
+        <h3 class="title-admin">About You:</h3>
+
+        <p>Firstname :
+            <span>
+            <?= htmlspecialchars( $_SESSION['auth']['name'] ); ?>
+            </span>
+        </p>
+
+        <p>Lastname :
+            <span>
+            <?= htmlspecialchars( $_SESSION['auth']['lastname'] ); ?>
+            </span>
+        </p>
+
+        <p>Mail :
+            <span>
+            <?= htmlspecialchars( $_SESSION['auth']['mail'] ); ?>
+            </span>
+        </p>
+
+        <p>Phone :
+            <span>
+            <?= htmlspecialchars( $_SESSION['auth']['phone'] ); ?>
+            </span>
+        </p>
+
+        <p>Address :
+            <span>
+            <?= htmlspecialchars( $_SESSION['auth']['address'] ); ?>
+            </span>
+        </p>
+
+        <p>City :
+            <span>
+            <?= htmlspecialchars( $_SESSION['auth']['city'] ); ?>
+            </span>
+        </p>
+
+        <p>ZipCode :
+            <span>
+            <?= htmlspecialchars( $_SESSION['auth']['zipcode'] ); ?>
+            </span>
+        </p>
+
+        <p>Country :
+            <span>
+            <?= htmlspecialchars( $_SESSION['auth']['country'] ); ?>
+            </span>
+        </p>
+
+        <button class="myprofile-update"><a href="userUpdate.php?id=<?= ( $_SESSION['auth']['id'] ); ?>">Update profil</a></button>
+
+        <h3 class="title-admin">Your Donation:</h3>
+
+        <p>Coming soon..</p>
+
+    </div>
+</div>

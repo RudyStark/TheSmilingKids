@@ -1,0 +1,106 @@
+<div class="form-update">
+  <form method="post">
+    <input type="hidden" name="id" value="<?= htmlspecialchars($id) ?>">
+    <fieldset>
+      <legend>Update Profil</legend>
+      <label>
+        <span>Firstname <span class="required">*</span></span>
+          <input 
+          type="text" 
+          class="input-field" 
+          name="firstname"
+          id="firstname"
+          value="<?= htmlspecialchars($user['firstname']);?>" />
+      </label>
+
+      <label for="lastname">
+        <span>lastname <span class="required">*</span></span>
+        <input 
+        type="text" 
+        class="input-field" 
+        name="lastname"
+        id="lastname"
+        value="<?= htmlspecialchars($user['lastname']);?>" />
+      </label>
+
+      <label for="mail">
+        <span>E-mail <span class="required">*</span></span>
+        <input 
+        type="text" 
+        class="input-field" 
+        name="mail"
+        id="mail"
+        value="<?= htmlspecialchars($user['mail']);?>" />
+      </label>
+
+      <label for="phone">
+        <span>Phone <span class="required">*</span></span>
+        <input 
+        type="text" 
+        class="input-field" 
+        name="phone"
+        id="phone"
+        value="<?= htmlspecialchars($user['phone']);?>" />
+      </label>
+
+      <label for="address">
+        <span>Address <span class="required">*</span></span>
+        <input 
+        type="text" 
+        class="input-field" 
+        name="address"
+        id="address"
+        value="<?= htmlspecialchars($user['address']);?>" />
+      </label>
+
+      <label for="city">
+        <span>City <span class="required">*</span></span>
+        <input 
+        type="text" 
+        class="input-field" 
+        name="city"
+        id="city"
+        value="<?= htmlspecialchars($user['city']);?>" />
+      </label>
+
+      <label for="zipcode">
+        <span>Zipcode <span class="required">*</span></span>
+        <input 
+        type="text" 
+        class="input-field" 
+        name="zipcode"
+        id="zipcode"
+        value="<?= htmlspecialchars($user['zipcode']);?>" />
+      </label>
+
+      <label for="country">
+        <span>Country <span class="required">*</span></span>
+        <input 
+        type="text" 
+        class="input-field" 
+        name="country"
+        id="country"
+        value="<?= htmlspecialchars($user['country']);?>" />
+      </label>
+      
+      <label>
+        <span> </span>
+        <input type="submit" value="Submit" />
+      </label>
+      
+      <?php if(Session::isConnected() && $_SESSION['auth']['role']): ?>
+      <label>
+        <a href="dashboard.php">Cancel</a>
+      </label>
+      <?php elseif(Session::isConnected() && $_SESSION['auth']): ?>
+      <label>
+        <a href="myprofile.php">Cancel</a>
+      </label>
+      <?php endif ; ?>
+    </fieldset>
+
+    <fieldset>
+      <label><span>Change password? </span></label>
+    </fieldset>
+  </form>
+</div>

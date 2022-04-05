@@ -1,0 +1,7 @@
+<?php if(Session::isConnected() && $_SESSION['auth']['role']): 
+echo 'Bonjour '.$_SESSION['auth']['name'].''; ?>
+
+<div class="flex-container">
+  <h2>Coming Soon</h2>
+<?php endif ; ?>
+</div>

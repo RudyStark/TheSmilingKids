@@ -1,0 +1,31 @@
+<?php if(Session::isConnected() && $_SESSION['auth']['role']): ?>
+<h2><i class="fa fa-pencil"></i>Write a new article</h2>
+    <div class="form-update">
+        <form method="post">
+            <fieldset>
+                <legend>New Article</legend>
+                <label for="title"><span>Title <span class="required">*</span></span>
+                    <input type="text" class="input-field" name="title" id="title" value="" />
+                </label>
+                <label for="user"><span>Author</span>
+                    <select name="user" class="select-field" id="user">
+                    <?php foreach($users as $element): ?>
+                        <option value="<?= intval($element['id']) ?>"><?= htmlspecialchars($element['firstname']) ?> <?= htmlspecialchars($element['lastname']) ?></option>
+                    <?php endforeach ?>
+                    </select>
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>Content</legend>
+                <label for="content"><span>Message <span class="required">*</span></span>
+                    <textarea name="content" class="textarea-field" id="content"></textarea>
+                </label>
+                <label><span> </span><input type="submit" value="Submit" />
+                </label>
+                <label>
+                    <a href="dashboard.php">Cancel</a>
+                </label>
+            </fieldset>
+        </form>
+    </div>
+<?php endif ; ?>

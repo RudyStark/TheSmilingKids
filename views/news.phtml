@@ -1,0 +1,21 @@
+<section class="news-container">
+    <h2>Informations</h2>
+    <?php foreach($posts as $element): ?>
+    <article class="news">
+
+        <div class="big-title-admin">
+            <h3 class="title-news">
+                <?= htmlspecialchars($element['title']); ?>
+            </h3>
+        </div>
+        <p>
+            <?= htmlspecialchars($element['content']); ?>
+        </p>
+        <p class="news-detail">
+            <?= htmlspecialchars($element['date']); ?>
+        </p>
+
+    </article>
+    <br>
+    <?php endforeach; ?>
+</section>

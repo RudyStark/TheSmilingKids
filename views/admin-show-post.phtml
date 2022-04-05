@@ -1,0 +1,66 @@
+<?php if(Session::isConnected() && $_SESSION['auth']['role']): 
+echo 'Bonjour '.$_SESSION['auth']['name'].''; ?>
+
+<div class="flex-container">
+  <table class="admin-table">
+    <caption>
+      You have currently
+    <strong>(<?= intval($count) ;  ?> articles)</strong>
+    </caption>
+  
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Author</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach($user as $post): ?>
+      <tr>
+        <td>
+          <?= htmlspecialchars( $post['id'] ); ?>
+        </td>
+        
+        <td>
+          <?= htmlspecialchars( $post['date'] ); ?>
+        </td>
+        
+        <td>
+          
+          <?= htmlspecialchars( $post['title'] ); ?>
+          
+        </td>
+  
+        <td>
+          
+          <?= substr( $post['content'],0, 50). "&hellip;" ?>
+          
+        </td>
+  
+        <td>
+          <?= htmlspecialchars( $post['firstname'] ); ?>
+          <?= htmlspecialchars( $post['lastname'] ); ?>
+        </td>
+        
+        <td>
+          <a title="Modifier le post" href="postUpdate.php?id=<?= $post['id']; ?>">
+            <i class="fa fa-pen-nib" aria-hidden="true"></i>
+          </a>
+        </td>
+        
+        <td>
+          <a href="delete-post.php?id=<?= intval( $post['id'] ); ?>" class="btn btn-danger" title="Supprimer le post">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </a>
+        </td>
+      </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+<?php endif ; ?>
+</div>

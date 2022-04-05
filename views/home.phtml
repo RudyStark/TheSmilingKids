@@ -1,0 +1,44 @@
+<section class="section-carousel">
+	<div class="slidercontainer">  
+        <div class="showSlide fade">  
+            <img src="./img/slider/slider1.jpg" alt="slider1" />  
+            <div class="content"><h3>Lorem ipsum dolor sit amet</h3></div>  
+        </div>  
+        <div class="showSlide fade">  
+            <img src="./img/slider/slider2.jpg" alt="slider2" />  
+            <div class="content"><h3>Lorem ipsum dolor sit amet</h3></div>  
+        </div>  
+  
+        <div class="showSlide fade">  
+            <img src="./img/slider/slider3.jpg" alt="slider3" />  
+            <div class="content"><h3>Lorem ipsum dolor sit amet</h3></div>  
+        </div>  
+        <!-- Navigation arrows -->  
+        <a class="slider-left" onclick="nextSlide(-1)">❮</a>  
+        <a class="slider-right" onclick="nextSlide(1)">❯</a>  
+    </div>
+</section>
+
+<section class="donation-selection">
+    <h2>Donation</h2>
+    <div class="flex-donation">
+    <?php foreach($products as $element):?>
+        <div class="donate-product-border">
+            <article>
+                <figure>
+                    <img class="product-img" src="./img/<?= htmlspecialchars($element["image"]).'.png'; ?>" alt="products" height=200 width=250 />
+                    <figcaption><h3><?= htmlspecialchars($element["name"]); ?></h3></figcaption>
+                </figure>
+            <p><?= htmlspecialchars($element["description"]); ?></p>
+            <p>Price:</p>
+            <p class="price"><strong><?php $price=floatval($element["price"]);?>
+            <span><?= number_format($price,2) ?> €</span></strong>
+            </p>
+            <button class="btn-love-donate add addtocart" data-id="<?= htmlspecialchars($element["id"]); ?>" data-price="<?= htmlspecialchars($element["price"]); ?>" data-name="<?= htmlspecialchars($element["name"]); ?>"><span>&#x2764;</span>Donate</button>
+            </article>
+        </div>
+    <?php endforeach; ?> 
+    </div>
+</section>
+
+<script src="./js/carousel.js"></script>

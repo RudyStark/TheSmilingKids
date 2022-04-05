@@ -1,0 +1,26 @@
+<!--PAGE CONTACT: Formulaire qui permet d'envoyer un message à l'association.-->
+<div class="contact-container">  
+    <form class="contact" id="contact" action="contact.php" method="post">
+      <h3>The Smiling Kids Foundation</h3>
+      <h4>Contact us for any questions</h4>
+      <fieldset>
+        <input id="name" name="name" placeholder="Your name" type="text" tabindex="1" required autofocus>
+      </fieldset>
+      <fieldset>
+        <input id="mail" name="mail" placeholder="Your Email Address" type="email" tabindex="2" required>
+      </fieldset>
+      <fieldset>
+        <input id="phone" name="phone" placeholder="Your Phone Number (optional)" type="tel" tabindex="3">
+      </fieldset>
+      <fieldset>
+        <input id="subject" name="subject" placeholder="Subject" type="text" tabindex="4" required>
+      </fieldset>
+      <fieldset>
+        <textarea id="content" name="content" placeholder="Type your message here...." tabindex="5" required></textarea>
+      </fieldset>
+      <fieldset>
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+      </fieldset>
+    </form>
+</div>
+

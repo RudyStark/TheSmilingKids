@@ -1,0 +1,42 @@
+<section>
+  <div class=flex-container>
+    <div class="cart-border">
+      <div class="big-title-admin">
+        <h2>Your donation details</h2>
+      </div>
+    <table class="admin-table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Nom</th>
+          <th scope="col">Prix</th>
+          <th scope="col">Quantité</th>
+          <th scope="row">Totals</th>
+        </tr>
+      </thead>
+      <tbody class="displayCart">
+      <!--récupère l'affichage du fichier displayCart.js-->
+      </tbody>
+      <tfoot>
+        <td colspan="1">
+          <strong><p class="totalPanier">Total: </p><strong>
+        </td>
+      </tfoot>
+      </table>
+      <button class="clear-cart-btn ClearItems">Clear All</button>
+      </div>
+    </div>
+  <?php if(Session::isConnected() && $_SESSION['auth']): ?>
+  <div class="next-step-cart">
+    <p><?= 'Hello '.$_SESSION['auth']['name'] .' '. $_SESSION['auth']['lastname'].' click here for process to payment'; ?>
+      <a href="checkout.php"><input class="process-next-btn" type="submit" value="process order" id="check"></a>
+      
+  <?php else: ?>
+        <?= 'You must be logged in to proceed to payment'; ?>
+      <a href="login.php"><input class="process-next-btn" type="submit" value="use my login"></a>
+    </p>
+  </div>
+  <?php endif ; ?>
+</section>
+  
+<!--SCRIPT AREA  -->
+<script type="module" src="js/displayCart.js"></script>

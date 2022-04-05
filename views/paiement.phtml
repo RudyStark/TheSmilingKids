@@ -1,0 +1,31 @@
+<div class=flex-container>
+  <div class="cart-border">
+    <div class="big-title-admin">
+      <h2>Your donation:</h2>
+      <p>Total
+        <?= number_format($total,2,'.','') ?> € </p>
+    </div>
+    <!--Utilisation de l'API STRIPE-->
+    <form action="" method="POST" class="paiement-form">
+      <!--zone d'affichage des erreurs-->
+      <div id="errors"></div>
+      <!--zone pour identifier la personne-->
+      <div class="labelP">
+        <label for="nom">Nom sur la carte</label>
+        <input class="my-input" id="cardholder-name" type="text" placeholder="Titulaire de la carte">
+      </div>
+      <div class="labelP">
+        <label for="card-element">Numéro de la carte</label>
+        <!--formulaire de siaise du numéro de la carte-->
+        <div class="card-element my-input" id="card-element">
+        </div>
+      </div>
+      <!--l'affiche des erreurs relatives au numéro de carte-->
+      <div id="card-errors" role="alert"></div>
+      <!--bouton de validation-->
+      <a id="card-button" class="process-next-btn" data-secret="<?= $intent->client_secret ?>">
+        Submit Payment
+      </a>
+    </form>
+  </div>
+</div>

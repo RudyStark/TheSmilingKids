@@ -1,0 +1,122 @@
+    <!--RESTRICTION DE l'ACCESS-->
+    <!--<h1>ACCESS DENIED</h1>-->
+
+
+<?php if(Session::isConnected() && $_SESSION['auth']['role']== 1): 
+echo 'Bonjour '.$_SESSION['auth']['name'].''; ?>
+
+<div class="flex-container">
+  <div class="admin-border">
+    <div class="big-title-admin">
+    <h2>User Profile</h2>
+    </div>
+    <h3 class="title-admin">Articles:</h3>
+    
+      <?php foreach($counts as $elements): ?>
+      <p>Your Articles:
+        <strong>(<?= htmlspecialchars($elements); ?> articles)</strong></p>
+      <?php endforeach ?>
+    
+    <h3 class="title-admin">About You:</h3>   
+    
+      <p>Firstname : 
+        <span>
+          <?= htmlspecialchars( $_SESSION['auth']['name'] ); ?>
+        </span>
+      </p>
+      
+      <p>Lastname :
+        <span>
+          <?= htmlspecialchars( $_SESSION['auth']['lastname'] ); ?>
+        </span>
+      </p>
+      
+      <p>Mail :
+        <span>
+          <?= htmlspecialchars( $_SESSION['auth']['mail'] ); ?>
+        </span>
+      </p>
+      
+      <p>Phone :
+        <span>
+          <?= htmlspecialchars( $_SESSION['auth']['phone'] ); ?>
+        </span>
+      </p>
+      
+      <p>Address :
+        <span>
+          <?= htmlspecialchars( $_SESSION['auth']['address'] ); ?>
+        </span>
+      </p>
+      
+      <p>City : 
+        <span>
+          <?= htmlspecialchars( $_SESSION['auth']['city'] ); ?>
+        </span>
+      </p>
+      
+      <p>ZipCode :
+        <span>
+          <?= htmlspecialchars( $_SESSION['auth']['zipcode'] ); ?>
+        </span>
+      </p>
+      
+      <p>Country :
+        <span>
+          <?= htmlspecialchars( $_SESSION['auth']['country'] ); ?>
+        </span>
+      </p>
+     <a href="userUpdate.php?id=<?= ( $_SESSION['auth']['id'] ); ?>">Update profil</a>
+
+</div>
+
+  <div class="admin-border">
+    <div class="big-title-admin">
+    <h2>Inquiry Message</h2>
+    </div>
+    <h3 class="title-admin">Unread:</h3>
+      
+      <?php foreach($messages as $elements): ?>
+        <p>
+          <?= htmlspecialchars( $elements['date']=date('d-m-Y') ); ?> 
+          <?= htmlspecialchars( $elements['name'] ); ?>
+          <?= htmlspecialchars( $elements['subject'] ); ?>
+        </p>
+      <?php endforeach ?>
+        
+  </div>
+   
+  <div class="admin-border">
+    <div class="big-title-admin">
+    <h2>Users Control</h2>
+    </div>
+    <h3 class="title-admin"><a href="register.php">Add user</a></h3>
+    <h3>Role</h3>
+    
+      <form method="POST" for="dashboard.php">
+        <select name="users">
+          <?php foreach($users as $element): ?>
+            <option value="<?= $element['id'] ?>">
+              <?= htmlspecialchars( $element['firstname'] ); ?>
+              <?= htmlspecialchars( $element['lastname'] ); ?>
+            </option>
+          <?php endforeach ?>
+        </select>
+        <input name="submit" type="submit" value="Submit"/>
+      </form>
+
+        
+   
+  </div>
+   
+  <div class="admin-border">
+    <div class="big-title-admin">
+    <h2>Articles Control</h2>
+    </div>
+    <h3 class="title-admin"><a href="postCreate.php">New article</a></h3>
+      <p></p>
+  </div>
+    
+</div>
+<?php endif ; ?>
+  

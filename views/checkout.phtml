@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Your Donation</title>
+    <!--<link rel="stylesheet" href="css/checkout.css">-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <section>
+      <div class="product">
+        <div class="description">
+          <h3>Your Donation</h3>
+          <h5><?= number_format($total,2,'.',''); ?> €</h5>
+        </div>
+      </div>
+      <form action="create-checkout-session.php" method="POST">
+        <button type="submit" id="checkout-button">send</button>
+      </form>
+    </section>
+  </body>
+</html>

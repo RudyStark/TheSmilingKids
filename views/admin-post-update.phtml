@@ -1,0 +1,24 @@
+<?php if(Session::isConnected() && $_SESSION['auth']['role']): ?>
+    <div class="form-update">
+        <form method="post">
+          <input type="hidden" name="id" value="<?= $id ?>">
+            <fieldset>
+                <legend>Update Article</legend>
+                <label for="title"><span>Title <span class="required">*</span></span>
+                <input type="text" class="input-field" name="title" id="title" value="<?= htmlspecialchars($post['title']);?>" />
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>Content</legend>
+                <label for="content"><span>Message <span class="required">*</span></span>
+                    <textarea name="content" class="textarea-field" id="content"><?= htmlspecialchars($post['content']);?></textarea>
+                </label>
+                <label><span> </span><input type="submit" value="Submit" />
+                </label>
+                <label>
+                    <a href="dashboard.php">Cancel</a>
+                </label>
+            </fieldset>
+        </form>
+    </div>
+<?php endif ; ?>

@@ -1,0 +1,94 @@
+<?php if(Session::isConnected() && $_SESSION['auth']['role']):; ?>
+
+<div class="flex-container-scroll">
+  <table class="admin-table">
+    <caption>
+      You have currently
+
+      <strong>(<?= intval($count) ;  ?> users)</strong>
+
+    </caption>
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Lastname</th>
+        <th>Firstname</th>
+        <th>Mail</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>ZipCode</th>
+        <th>Country</th>
+        <th>Author</th>
+        <th>Admin</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach($user as $post): ?>
+
+      <tr>
+        
+        <td>
+          <?= htmlspecialchars( $post['id'] ); ?>
+        </td>
+        
+        <td>
+          <?= htmlspecialchars( $post['lastname'] ); ?>
+        </td>
+        
+        <td>
+          <?= htmlspecialchars( $post['firstname'] ); ?>
+            </a>
+        </td>
+
+        <td>
+          <?= htmlspecialchars( $post['mail'] ); ?>
+            </a>
+        </td>
+        
+        <td>
+          <?= htmlspecialchars( $post['phone'] ); ?>
+            </a>
+        </td>
+        
+        <td>
+          <?= htmlspecialchars( $post['address'] ); ?>
+            </a>
+        </td>
+
+        <td>
+          <?= htmlspecialchars( $post['city'] ); ?>
+            </a>
+        </td>
+
+        <td>
+          <?= htmlspecialchars( $post['zipcode'] ); ?>
+            </a>
+        </td>
+        
+        <td>
+          <?= htmlspecialchars( $post['country'] ); ?>
+            </a>
+        </td>
+        
+        <td>
+          <strong><?= htmlspecialchars( $post['isAuthor'] );  ?></strong>
+        </td>
+        
+        <td>
+          <strong><?= htmlspecialchars( $post['isAdmin'] );  ?></strong>
+        </td>
+
+        <td>
+
+          <a type="button" title="Delete user" href="delete-user.php?id=<?= intval($post['id']);?>">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </a>
+        </td>
+      </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+</div>
+<?php endif ; ?>
